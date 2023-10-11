@@ -1,4 +1,4 @@
-import { UniqueEntityID } from "./unique-entity-is"
+import { UniqueEntityID } from "./unique-entity-id"
 
 
 export class Entity<Props>{
@@ -9,8 +9,8 @@ export class Entity<Props>{
         return this._id
     }
 
-    constructor(props: any, id?: string) {
+    protected constructor(props: any, id?: UniqueEntityID) {
         this.props = props
-        this._id = new UniqueEntityID(id)
+        this._id = id ?? new UniqueEntityID()
     }
 }
