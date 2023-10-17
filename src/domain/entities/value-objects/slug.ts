@@ -1,30 +1,28 @@
 export class Slug {
-    public value: string
+  public value: string
 
-    constructor(value: string) {
-        this.value = value
-    }
+  constructor(value: string) {
+    this.value = value
+  }
 
-    /**
-     * Receives a string and normalize it as a slug
-     * 
-     * Example: "An example title" = "an-example-title"
-     *  
-     * 
-     * @param text {string}
-     */
-    static createFromText(text: string) {
-        const slugText = text
-            .normalize("NFKD")
-            .toLowerCase()
-            .trim()
-            .replace(/\s+/g, '-') //Substituindo espaços em branco por hífens
-            .replace(/[^\w-]+/g, '') // Removendo caracteres especiais, exceto hífens (-)
-            .replace(/--+/g, '-') // Substituindo múltiplos hífens por apenas um hífen
-            .replace(/^-+|-+$/g, '') // Removendo hífens no início e no final
+  /**
+   * Receives a string and normalize it as a slug
+   *
+   * Example: "An example title" = "an-example-title"
+   *
+   *
+   * @param text {string}
+   */
+  static createFromText(text: string) {
+    const slugText = text
+      .normalize('NFKD')
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-') // Substituindo espaços em branco por hífens
+      .replace(/[^\w-]+/g, '') // Removendo caracteres especiais, exceto hífens (-)
+      .replace(/--+/g, '-') // Substituindo múltiplos hífens por apenas um hífen
+      .replace(/^-+|-+$/g, '') // Removendo hífens no início e no final
 
-
-        return new Slug(slugText)
-
-    }
+    return new Slug(slugText)
+  }
 }
