@@ -8,7 +8,7 @@ import { FetchQuestionCommentsUseCase } from './fetch-question-comments'
 let inMemoryQuestionCommentsRepository: InMemoryQuestionCommentsRepository
 let sut: FetchQuestionCommentsUseCase
 
-describe('Fetch Recent Comment', async () => {
+describe('Fetch Question Comments', async () => {
     beforeEach(() => {
         inMemoryQuestionCommentsRepository = new InMemoryQuestionCommentsRepository()
         sut = new FetchQuestionCommentsUseCase(inMemoryQuestionCommentsRepository)
